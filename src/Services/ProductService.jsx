@@ -24,15 +24,9 @@ export const getProductById = async (id) => {
 
 // http://localhost:5020/api/product
 
-export const createProduct = async (name, price, thumbnail, description, active) => {
+export const createProduct = async (product) => {
     try {
-        const data = await axios.post(api + `product`, {
-            name: name,
-            price: price,
-            thumbnail: thumbnail,
-            description: description,
-            active: active
-        })
+        const data = await axios.post(api + `product`, product)
         return data
     } catch (error) {
         handleError(error);
